@@ -15,6 +15,7 @@ import { db } from '@/lib/db'
 import { Separator } from '@/components/ui/separator'
 import CandidateCard from './_components/candidate-card'
 
+export const revalidate = 0
 const CandidatesPage = async () => {
 	const positions = await db.position.findMany({
 		include: {

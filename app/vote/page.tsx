@@ -4,6 +4,7 @@ import React from 'react'
 import VotingClient from './_components/voting-client'
 import { db } from '@/lib/db'
 
+export const revalidate = 0
 const VotePage = async () => {
 	const positons = await db.position.findMany({
 		include: {
