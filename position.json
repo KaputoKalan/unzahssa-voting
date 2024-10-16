@@ -1,0 +1,38 @@
+[
+	{
+		"label": "PRESIDENT",
+		"value": "PRESIDENT"
+	},
+	{
+		"label": "VICE PRESIDENT",
+		"value": "VICE PRESIDENT"
+	},
+	{
+		"label": "SECRETARY GENERAL",
+		"value": "SECRETARY GENERAL"
+	},
+	{
+		"label": "TREASURER",
+		"value": "TREASURER"
+	},
+	{
+		"label": "PUBLICITY SECRETARY",
+		"value": "PUBLICITY SECRETARY"
+	},
+	{
+		"label": "SPORTS AND RECREATION SECRETARY",
+		"value": "SPORTS AND RECREATION SECRETARY"
+	},
+	{
+		"label": "PROJECTS SECRETARY",
+		"value": "PROJECTS SECRETARY"
+	},
+	{
+		"label": "SECRETARY FOR STUDENTS WITH SPECIAL NEEDS",
+		"value": "SECRETARY FOR STUDENTS WITH SPECIAL NEEDS"
+	},
+	{
+		"label": "COMMITTEE MEMBER",
+		"value": "COMMITTEE MEMBER"
+	}
+]

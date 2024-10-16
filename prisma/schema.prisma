@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB uses a string id
+  username        String
+  computerNumber  String   @unique
+  password        String
+  hasVoted        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  changedPassword Boolean  @default(false)
+  role            UserRole @default(STUDENT)
+  votes           Vote[]
+
+  @@map("user")
+}
+
+model Event {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  location    String
+  date        DateTime
+  candidates  Candidate[]
+  votes       Vote[]
+  createdAt   DateTime    @default(now())
+
+  @@map("event")
+}
+
+model Candidate {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  positionId  String   @db.ObjectId
+  position    Position @relation(fields: [positionId], references: [id])
+  description String?
+  program     String?
+  yearOfStudy String?
+  imageUrl    String?
+  votes       Vote[]
+  createdAt   DateTime @default(now())
+  Event       Event?   @relation(fields: [eventId], references: [id])
+  eventId     String?  @db.ObjectId
+
+  @@map("candidate")
+}
+
+model Position {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  label     String
+  value     String
+  Candidate Candidate[]
+
+  @@map("position")
+}
+
+model Vote {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String    @db.ObjectId
+  candidateId String    @db.ObjectId
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id])
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  Event       Event?    @relation(fields: [eventId], references: [id])
+  eventId     String?   @db.ObjectId
+
+  @@map("vote")
+}
+
+enum UserRole {
+  ADMIN
+  STUDENT
+}
