@@ -21,19 +21,6 @@ model User {
   @@map("user")
 }
 
-model Event {
-  id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  description String
-  location    String
-  date        DateTime
-  candidates  Candidate[]
-  votes       Vote[]
-  createdAt   DateTime    @default(now())
-
-  @@map("event")
-}
-
 model Candidate {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -45,8 +32,6 @@ model Candidate {
   imageUrl    String?
   votes       Vote[]
   createdAt   DateTime @default(now())
-  Event       Event?   @relation(fields: [eventId], references: [id])
-  eventId     String?  @db.ObjectId
 
   @@map("candidate")
 }
@@ -67,7 +52,6 @@ model Vote {
   createdAt   DateTime  @default(now())
   user        User      @relation(fields: [userId], references: [id])
   candidate   Candidate @relation(fields: [candidateId], references: [id])
-  Event       Event?    @relation(fields: [eventId], references: [id])
   eventId     String?   @db.ObjectId
 
   @@map("vote")

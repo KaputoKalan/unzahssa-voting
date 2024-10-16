@@ -46,6 +46,7 @@ import { Button } from '@/components/ui/button'
 import useSWR from 'swr'
 import { fetcher } from '@/lib/fetcher'
 import { Loader2 } from 'lucide-react'
+import { ContentLayout } from '@/components/admin-panel/content-layout'
 
 interface PositionsProps {
 	id: string
@@ -90,163 +91,169 @@ const NewCandidateModal = () => {
 
 	const { isSubmitting, isValid } = form.formState
 	return (
-		<div className="p-10 w-full md:w-5/6 mx-auto relative flex flex-col items-center justify-center space-y-6 min-h-screen">
-			<h1 className="text-2xl font-semibold capitalize">Add a new Candidate</h1>
+		<ContentLayout title="Add New Candidate">
+			<div className=" w-full md:w-5/6 mx-auto relative flex flex-col items-center space-y-6 min-h-screen">
+				<h1 className="text-2xl font-semibold capitalize">
+					Add a new Candidate
+				</h1>
 
-			<Form {...form}>
-				<form
-					onSubmit={form.handleSubmit(onSubmit)}
-					className="space-y-4 bg-white p-5 rounded-lg shadow-sm w-4/6 mx-auto">
-					<FormField
-						control={form.control}
-						name="name"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>
-									Name <span className="text-red-500  ml-1">*</span>
-								</FormLabel>
-								<FormControl>
-									<Input
-										disabled={isSubmitting}
-										{...field}
-										placeholder="Name of the candidate"
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					<FormField
-						control={form.control}
-						name="description"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>
-									Description <span className="text-red-500 ml-1">*</span>
-								</FormLabel>
-								<FormControl>
-									<Textarea
-										disabled={isSubmitting}
-										{...field}
-										placeholder="Description of the candidate"
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					<FormField
-						control={form.control}
-						name="position"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>
-									Position <span className="text-red-500 ml-1">*</span>
-								</FormLabel>
-								<Select
-									onValueChange={field.onChange}
-									defaultValue={field.value}>
+				<Form {...form}>
+					<form
+						onSubmit={form.handleSubmit(onSubmit)}
+						className="space-y-4 bg-white p-5 rounded-lg shadow-sm w-5/6 md:w-4/6 mx-auto">
+						<FormField
+							control={form.control}
+							name="name"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>
+										Name <span className="text-red-500  ml-1">*</span>
+									</FormLabel>
 									<FormControl>
-										<SelectTrigger className="">
-											<SelectValue placeholder="Position" />
-										</SelectTrigger>
+										<Input
+											disabled={isSubmitting}
+											{...field}
+											placeholder="Name of the candidate"
+										/>
 									</FormControl>
-									<SelectContent>
-										{positions?.map((pos, index) => (
-											<SelectItem key={index} value={pos?.id}>
-												{pos?.label}
-											</SelectItem>
-										))}
-									</SelectContent>
-								</Select>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-
-					<div className="grid grid-cols-2 gap-5">
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
 						<FormField
 							control={form.control}
-							name="program"
+							name="description"
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>
-										Program <span className="text-red-500 ml-1">*</span>
+										Description <span className="text-red-500 ml-1">*</span>
+									</FormLabel>
+									<FormControl>
+										<Textarea
+											disabled={isSubmitting}
+											{...field}
+											placeholder="Description of the candidate"
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+
+						<FormField
+							control={form.control}
+							name="position"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>
+										Position <span className="text-red-500 ml-1">*</span>
 									</FormLabel>
 									<Select
 										onValueChange={field.onChange}
 										defaultValue={field.value}>
 										<FormControl>
 											<SelectTrigger className="">
-												<SelectValue placeholder="Select the program of study" />
+												<SelectValue placeholder="Position" />
 											</SelectTrigger>
 										</FormControl>
 										<SelectContent>
-											{programOfStudy.map((prog, index) => (
-												<SelectItem key={index} value={prog?.value!}>
-													{prog?.label}
+											{positions?.map((pos, index) => (
+												<SelectItem key={index} value={pos?.id}>
+													{pos?.label}
 												</SelectItem>
 											))}
 										</SelectContent>
 									</Select>
+									<FormMessage />
 								</FormItem>
 							)}
 						/>
+
+						<div className="grid grid-cols-2 gap-5">
+							<FormField
+								control={form.control}
+								name="program"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Program <span className="text-red-500 ml-1">*</span>
+										</FormLabel>
+										<Select
+											onValueChange={field.onChange}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger className="">
+													<SelectValue placeholder="Select the program of study" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{programOfStudy.map((prog, index) => (
+													<SelectItem key={index} value={prog?.value!}>
+														{prog?.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="yearOfStudy"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Year <span className="text-red-500 ml-1">*</span>
+										</FormLabel>
+										<Select
+											onValueChange={field.onChange}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger className="">
+													<SelectValue placeholder="Select the year of study" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{yearOfStudy.map((year, index) => (
+													<SelectItem key={index} value={year?.value!}>
+														{year?.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormItem>
+								)}
+							/>
+						</div>
+
 						<FormField
 							control={form.control}
-							name="yearOfStudy"
+							name="imageUrl"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>
-										Year <span className="text-red-500 ml-1">*</span>
-									</FormLabel>
-									<Select
-										onValueChange={field.onChange}
-										defaultValue={field.value}>
-										<FormControl>
-											<SelectTrigger className="">
-												<SelectValue placeholder="Select the year of study" />
-											</SelectTrigger>
-										</FormControl>
-										<SelectContent>
-											{yearOfStudy.map((year, index) => (
-												<SelectItem key={index} value={year?.value!}>
-													{year?.label}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
+									<FormLabel>Banner Image</FormLabel>
+									<FormControl>
+										<ImageUpload
+											value={field.value ? [field.value] : []}
+											onChange={(url) => field.onChange(url)}
+											onRemove={() => field.onChange('')}
+										/>
+									</FormControl>
+									<FormMessage />
+									<FormDescription>
+										16:9 aspect ratio recommended
+									</FormDescription>
 								</FormItem>
 							)}
 						/>
-					</div>
 
-					<FormField
-						control={form.control}
-						name="imageUrl"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Banner Image</FormLabel>
-								<FormControl>
-									<ImageUpload
-										value={field.value ? [field.value] : []}
-										onChange={(url) => field.onChange(url)}
-										onRemove={() => field.onChange('')}
-									/>
-								</FormControl>
-								<FormMessage />
-								<FormDescription>16:9 aspect ratio recommended</FormDescription>
-							</FormItem>
-						)}
-					/>
-
-					<Button type="submit" disabled={isPending}>
-						Submit
-					</Button>
-				</form>
-			</Form>
-		</div>
+						<Button type="submit" disabled={isPending}>
+							Submit
+						</Button>
+					</form>
+				</Form>
+			</div>
+		</ContentLayout>
 	)
 }
 

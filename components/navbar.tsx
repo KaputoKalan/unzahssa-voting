@@ -29,13 +29,13 @@ const Navbar = () => {
 
 			<ul className="hidden md:flex items-center gap-10 text-card-foreground">
 				<li className="text-primary font-medium">
-					<Link href="#home">Home</Link>
+					<Link href="/">Home</Link>
 				</li>
 				<li>
-					<Link href="#candidates">Candidates</Link>
+					<Link href="/candidates">Candidates</Link>
 				</li>
 				<li>
-					<Link href="#faqd">FAQs</Link>
+					<Link href="/faqs">FAQs</Link>
 				</li>
 				<li>
 					<Link href="/vote" className="text-[#1BAB58] font-medium">
@@ -92,20 +92,6 @@ const Navbar = () => {
 				)}
 
 				<div className="flex md:hidden mr-2 items-center gap-2">
-					{/* <DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<span className="py-2 px-2 bg-gray-100 rounded-md">Pages</span>
-						</DropdownMenuTrigger>
-
-						<DropdownMenuContent align="start">
-							{landings.map((page) => (
-								<DropdownMenuItem key={page.id}>
-									<Link href={page.route}>{page.title}</Link>
-								</DropdownMenuItem>
-							))}
-						</DropdownMenuContent>
-					</DropdownMenu> */}
-
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
 							<Button variant="outline" size="icon">
@@ -115,28 +101,21 @@ const Navbar = () => {
 
 						<DropdownMenuContent align="end">
 							<DropdownMenuItem>
-								<Link href="#home">Home</Link>
+								<Link href="/">Home</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<Link href="#candidates">Candidates</Link>
+								<Link href="/candidates">Candidates</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<Link href="#faqs">FAQs</Link>
+								<Link href="/faqs">FAQs</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<Link href="#vote" className="text-[#1BAB58]">
+								<Link href="/vote" className="text-[#1BAB58]">
 									Vote Now!
 								</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								{role === 'ADMIN' && (
-									<Button
-										variant="outline"
-										asChild
-										className="hidden md:block px-2">
-										<Link href={'/dashboard'}>Dashboard</Link>
-									</Button>
-								)}
+								{role === 'ADMIN' && <Link href={'/dashboard'}>Dashboard</Link>}
 								{role === 'STUDENT' && (
 									<div>
 										<DropdownMenu>
@@ -160,14 +139,7 @@ const Navbar = () => {
 										</DropdownMenu>
 									</div>
 								)}
-								{!user && (
-									<Button
-										variant="outline"
-										asChild
-										className="hidden md:block px-2">
-										<Link href={'/auth/login'}>Login</Link>
-									</Button>
-								)}
+								{!user && <Link href={'/auth/login'}>Login</Link>}
 							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>

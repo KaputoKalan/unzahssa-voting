@@ -34,7 +34,7 @@ const CandidatesPage = async () => {
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
-							<Link href="/dasboard/candidates">Candidates</Link>
+							<Link href="/dashboard/candidates">Candidates</Link>
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 				</BreadcrumbList>

@@ -1,22 +1,21 @@
 import { create } from 'zustand'
 
-interface VotingState {
-	selectedCandidates: { [positionId: string]: string | null } // Stores candidate IDs by position ID
-	selectCandidate: (positionId: string, candidateId: string) => void
-	deselectCandidate: (positionId: string) => void
+interface VoteState {
+	votes: { positionId: string; candidateId: string }[]
+	addVote: (positionId: string, candidateId: string) => void
+	removeVote: (positionId: string) => void
 }
 
-export const useVotingStore = create<VotingState>((set) => ({
-	selectedCandidates: {},
-	selectCandidate: (positionId, candidateId) =>
+export const useVotingStore = create<VoteState>((set) => ({
+	votes: [],
+	addVote: (positionId, candidateId) =>
 		set((state) => ({
-			selectedCandidates: {
-				...state.selectedCandidates,
-				[positionId]: candidateId,
-			},
+			votes: state.votes
+				.filter((vote) => vote.positionId !== positionId) // Remove existing vote for the position
+				.concat({ positionId, candidateId }), // Add new vote
 		})),
-	deselectCandidate: (positionId) =>
+	removeVote: (positionId) =>
 		set((state) => ({
-			selectedCandidates: { ...state.selectedCandidates, [positionId]: null },
+			votes: state.votes.filter((vote) => vote.positionId !== positionId),
 		})),
 }))

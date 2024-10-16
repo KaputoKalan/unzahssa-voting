@@ -2,6 +2,7 @@ import Navbar from '@/components/navbar'
 import { Button } from '@/components/ui/button'
 import { currentUser } from '@/lib/auth'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Home() {
 	const user = await currentUser()
@@ -28,8 +29,12 @@ export default async function Home() {
 									</p>
 								</div>
 								<div className="space-x-4">
-									<Button className="bg-[#1BAB58]">Vote Now</Button>
-									<Button variant="outline">Candidates</Button>
+									<Button className="bg-[#1BAB58]" asChild>
+										<Link href={'/vote'}>Vote Now</Link>
+									</Button>
+									<Button variant="outline" asChild>
+										<Link href={'/candidates'}>Candidates</Link>
+									</Button>
 								</div>
 							</div>
 						</div>
