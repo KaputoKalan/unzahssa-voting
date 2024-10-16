@@ -20,6 +20,8 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { signOut } from '@/auth'
+import { logout } from '@/actions/logout'
 
 export function UserNav() {
 	return (
@@ -69,7 +71,9 @@ export function UserNav() {
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem className="hover:cursor-pointer" onClick={() => {}}>
+				<DropdownMenuItem
+					className="hover:cursor-pointer"
+					onClick={() => logout()}>
 					<LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
 					Sign out
 				</DropdownMenuItem>

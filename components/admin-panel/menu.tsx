@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/tooltip'
 import { getMenuList } from '@/lib/menu-list'
 import { signOut } from '@/auth'
+import { logout } from '@/actions/logout'
 
 interface MenuProps {
 	isOpen: boolean | undefined
@@ -109,7 +110,7 @@ export function Menu({ isOpen }: MenuProps) {
 							<Tooltip delayDuration={100}>
 								<TooltipTrigger asChild>
 									<Button
-										onClick={() => signOut()}
+										onClick={() => logout()}
 										variant="outline"
 										className="w-full justify-center h-10 mt-5">
 										<span className={cn(isOpen === false ? '' : 'mr-4')}>
