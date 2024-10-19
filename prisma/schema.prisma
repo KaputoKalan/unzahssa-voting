@@ -8,17 +8,21 @@ datasource db {
 }
 
 model User {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB uses a string id
-  username        String
-  computerNumber  String   @unique
-  password        String
-  hasVoted        Boolean  @default(false)
-  createdAt       DateTime @default(now())
-  changedPassword Boolean  @default(false)
-  role            UserRole @default(STUDENT)
-  votes           Vote[]
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB uses a string id
+  username       String
+  computerNumber String   @unique
+  password       String
+  hasVoted       Int      @default(0)
+  createdAt      DateTime @default(now())
+  role           UserRole @default(STUDENT)
+  votes          Vote[]
 
   @@map("user")
+}
+
+model ComputerNumbers {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  computerNumber BigInt @unique
 }
 
 model Candidate {
@@ -27,8 +31,6 @@ model Candidate {
   positionId  String   @db.ObjectId
   position    Position @relation(fields: [positionId], references: [id])
   description String?
-  program     String?
-  yearOfStudy String?
   imageUrl    String?
   votes       Vote[]
   createdAt   DateTime @default(now())
@@ -41,20 +43,32 @@ model Position {
   label     String
   value     String
   Candidate Candidate[]
+  Vote      Vote[]
 
   @@map("position")
 }
 
 model Vote {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  userId      String    @db.ObjectId
-  candidateId String    @db.ObjectId
-  createdAt   DateTime  @default(now())
-  user        User      @relation(fields: [userId], references: [id])
-  candidate   Candidate @relation(fields: [candidateId], references: [id])
-  eventId     String?   @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  candidateId String   @db.ObjectId
+  positionId  String   @db.ObjectId
+  position    Position @relation(fields: [positionId], references: [id])
+
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id])
+  candidate Candidate @relation(fields: [candidateId], references: [id])
+  eventId   String?   @db.ObjectId
 
   @@map("vote")
+}
+
+model VotedComputerNumbers {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  computerNumber BigInt   @unique
+  votedAt        DateTime @default(now())
+
+  @@map("voted_computer_numbers")
 }
 
 enum UserRole {

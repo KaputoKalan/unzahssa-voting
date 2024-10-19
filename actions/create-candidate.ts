@@ -12,16 +12,13 @@ export const createCandidate = async (
 		return { error: 'Invalid fields' }
 	}
 
-	const { description, name, position, program, yearOfStudy, imageUrl } =
-		validatedFields.data
+	const { description, name, position, imageUrl } = validatedFields.data
 
 	const candidate = await db.candidate.create({
 		data: {
 			description,
 			name,
 			positionId: position,
-			program,
-			yearOfStudy,
 			imageUrl,
 		},
 

@@ -28,16 +28,12 @@ export const RegisterSchema = z.object({
 })
 
 export const NewCandidateSchema = z.object({
-	name: z.string().min(3, {
-		message: 'Minimum of 3 characters required',
+	name: z.string().min(2, {
+		message: 'Minimum of 2 characters required',
 	}),
 	description: z
 		.string()
 		.min(3, { message: 'Minimum of 3 characters required' }),
 	position: z.string().min(3, { message: 'Minimum of 3 characters required' }),
 	imageUrl: z.string().optional(),
-	yearOfStudy: z
-		.string()
-		.min(3, { message: 'Minimum of 3 characters required' }),
-	program: z.string().min(3, { message: 'Minimum of 3 characters required' }),
 })

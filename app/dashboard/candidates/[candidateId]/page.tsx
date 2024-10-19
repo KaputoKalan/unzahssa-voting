@@ -73,16 +73,6 @@ const Candidate = async ({ params }: CandidateProps) => {
 							<CardTitle className="text-2xl sm:text-3xl font-bold">
 								{candidate.name}
 							</CardTitle>
-							<div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-2">
-								<Badge variant="secondary" className="text-sm capitalize">
-									<GraduationCap className="w-4 h-4 mr-1 " />
-									{candidate.program?.toLowerCase()}
-								</Badge>
-								<Badge variant="secondary" className="text-sm">
-									<CalendarDays className="w-4 h-4 mr-1" />
-									{candidate.yearOfStudy?.toLowerCase()} Year
-								</Badge>
-							</div>
 						</div>
 					</CardHeader>
 					<CardContent className="prose prose-sm sm:prose-base max-w-none">

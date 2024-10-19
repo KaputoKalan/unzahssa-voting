@@ -55,8 +55,6 @@ interface PositionsProps {
 }
 
 const NewCandidateModal = () => {
-	const candidateModal = useCandidateModal()
-
 	const { data: positions, isLoading } = useSWR<PositionsProps[]>(
 		'/api/position',
 		fetcher,
@@ -129,10 +127,10 @@ const NewCandidateModal = () => {
 										Description <span className="text-red-500 ml-1">*</span>
 									</FormLabel>
 									<FormControl>
-										<Textarea
+										<Input
 											disabled={isSubmitting}
 											{...field}
-											placeholder="Description of the candidate"
+											placeholder="Campaign Slogan / Name"
 										/>
 									</FormControl>
 									<FormMessage />
@@ -168,63 +166,6 @@ const NewCandidateModal = () => {
 								</FormItem>
 							)}
 						/>
-
-						<div className="grid grid-cols-2 gap-5">
-							<FormField
-								control={form.control}
-								name="program"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>
-											Program <span className="text-red-500 ml-1">*</span>
-										</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}>
-											<FormControl>
-												<SelectTrigger className="">
-													<SelectValue placeholder="Select the program of study" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												{programOfStudy.map((prog, index) => (
-													<SelectItem key={index} value={prog?.value!}>
-														{prog?.label}
-													</SelectItem>
-												))}
-											</SelectContent>
-										</Select>
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="yearOfStudy"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>
-											Year <span className="text-red-500 ml-1">*</span>
-										</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}>
-											<FormControl>
-												<SelectTrigger className="">
-													<SelectValue placeholder="Select the year of study" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												{yearOfStudy.map((year, index) => (
-													<SelectItem key={index} value={year?.value!}>
-														{year?.label}
-													</SelectItem>
-												))}
-											</SelectContent>
-										</Select>
-									</FormItem>
-								)}
-							/>
-						</div>
 
 						<FormField
 							control={form.control}

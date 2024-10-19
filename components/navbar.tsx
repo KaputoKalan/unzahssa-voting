@@ -31,12 +31,7 @@ const Navbar = () => {
 				<li className="text-primary font-medium">
 					<Link href="/">Home</Link>
 				</li>
-				<li>
-					<Link href="/candidates">Candidates</Link>
-				</li>
-				<li>
-					<Link href="/faqs">FAQs</Link>
-				</li>
+
 				<li>
 					<Link href="/vote" className="text-[#1BAB58] font-medium">
 						Vote Now
@@ -103,12 +98,7 @@ const Navbar = () => {
 							<DropdownMenuItem>
 								<Link href="/">Home</Link>
 							</DropdownMenuItem>
-							<DropdownMenuItem>
-								<Link href="/candidates">Candidates</Link>
-							</DropdownMenuItem>
-							<DropdownMenuItem>
-								<Link href="/faqs">FAQs</Link>
-							</DropdownMenuItem>
+
 							<DropdownMenuItem>
 								<Link href="/vote" className="text-[#1BAB58]">
 									Vote Now!

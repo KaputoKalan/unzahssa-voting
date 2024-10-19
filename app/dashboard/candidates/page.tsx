@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import Link from 'next/link'
 import AddCandidateButton from './_components/add-candidate-button'
-import NewCandidateModal from '@/components/modals/new-candidate-modal'
+
 import { db } from '@/lib/db'
 import { Separator } from '@/components/ui/separator'
 import CandidateCard from './_components/candidate-card'
@@ -58,8 +58,6 @@ const CandidatesPage = async () => {
 										description={candidate.description!}
 										id={candidate.id}
 										name={candidate.name}
-										program={candidate.program!}
-										yearOfStudy={candidate.yearOfStudy!}
 										imageUrl={candidate.imageUrl!}
 										key={candidate.id}
 									/>
