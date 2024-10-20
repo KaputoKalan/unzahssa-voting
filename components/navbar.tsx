@@ -16,6 +16,7 @@ import { useCurrentRole } from '@/hooks/use-current-role'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { signOut } from '@/auth'
 import { useCurrentUser } from '@/hooks/use-current-user'
+import Image from 'next/image'
 
 const Navbar = () => {
 	const role = useCurrentRole()
@@ -24,19 +25,16 @@ const Navbar = () => {
 	console.log(user)
 
 	return (
-		<Card className="container bg-card py-3 px-6 border-0 flex items-center mx-auto justify-between gap-6 rounded-2xl mt-5">
-			<h1>Logo</h1>
+		<Card className="w-5/6  bg-card py-3 px-6 border-0 flex items-center mx-auto justify-between gap-6 rounded-2xl mt-5">
+			<Image
+				src="/logo.png"
+				alt="logo"
+				width={100}
+				height={80}
+				className="object-cover"
+			/>
 
 			<ul className="hidden md:flex items-center gap-10 text-card-foreground">
-				<li className="text-primary font-medium">
-					<Link href="/">Home</Link>
-				</li>
-
-				<li>
-					<Link href="/vote" className="text-[#1BAB58] font-medium">
-						Vote Now
-					</Link>
-				</li>
 				{/* <li>
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>

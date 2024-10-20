@@ -154,13 +154,7 @@ const DashboardPage = async () => {
 						<div className=" grid grid-cols-2 gap-10 mt-10">
 							{positions.map((position) => {
 								const chartData = prepareChartData(position)
-								const config = chartData.reduce((acc, data, index) => {
-									acc[data.name] = {
-										label: data.name,
-										color: getColor(index),
-									}
-									return acc
-								}, {} as Record<string, { label: string; color: string }>)
+
 								return (
 									<Card key={position.id} className="w-full">
 										<CardHeader>
@@ -170,7 +164,7 @@ const DashboardPage = async () => {
 											</CardDescription>
 										</CardHeader>
 										<CardContent>
-											<CandidateChart data={chartData} config={config} />
+											<CandidateChart data={chartData} />
 										</CardContent>
 									</Card>
 								)

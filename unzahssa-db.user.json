@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "6710d3e8d8e8b96a05727711"
+  },
+  "username": "Kaputo",
+  "computerNumber": "2017001903",
+  "password": "$2a$10$GLwzpxBGF8PRHo8GWhZchOuyTXdInBpsMEp2n4vnIXJugL5w5AKvG",
+  "hasVoted": {
+    "$numberLong": "0"
+  },
+  "createdAt": {
+    "$date": "2024-10-17T09:07:52.563Z"
+  },
+  "role": "ADMIN"
+},
+{
+  "_id": {
+    "$oid": "6713b854dbee4547d3831fee"
+  },
+  "username": "Jackline",
+  "computerNumber": "2020082307",
+  "password": "$2a$10$wlPgzvutHEBIT7QLE8cbvuNCelRQfhwd/Xh24Rh6b66RhbbK1HshC",
+  "hasVoted": {
+    "$numberLong": "0"
+  },
+  "createdAt": {
+    "$date": "2024-10-19T13:47:00.167Z"
+  },
+  "role": "STUDENT"
+}]

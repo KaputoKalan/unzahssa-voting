@@ -1,0 +1,73 @@
+[
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b66"
+		},
+		"label": "PRESIDENT",
+		"value": "PRESIDENT"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b67"
+		},
+		"label": "VICE PRESIDENT",
+		"value": "VICE PRESIDENT"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b68"
+		},
+		"label": "SECRETARY GENERAL",
+		"value": "SECRETARY GENERAL"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b69"
+		},
+		"label": "TREASURER",
+		"value": "TREASURER"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b6a"
+		},
+		"label": "PUBLICITY SECRETARY",
+		"value": "PUBLICITY SECRETARY"
+	},
+	{
+		"_id": {
+			"$oid": "6710d515b594f0fc09319b73"
+		},
+		"value": "ACADEMIC AFFAIRS SECRETARY",
+		"label": "ACADEMIC AFFAIRS SECRETARY"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b6b"
+		},
+		"label": "SPORTS AND RECREATION SECRETARY",
+		"value": "SPORTS AND RECREATION SECRETARY"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b6c"
+		},
+		"label": "PROJECTS SECRETARY",
+		"value": "PROJECTS SECRETARY"
+	},
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b6d"
+		},
+		"label": "SECRETARY FOR STUDENTS WITH SPECIAL NEEDS",
+		"value": "SECRETARY FOR STUDENTS WITH SPECIAL NEEDS"
+	},
+
+	{
+		"_id": {
+			"$oid": "6710c6d8b594f0fc09319b6e"
+		},
+		"label": "COMMITTEE MEMBER",
+		"value": "COMMITTEE MEMBER"
+	}
+]

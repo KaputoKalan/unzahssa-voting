@@ -48,18 +48,25 @@ const VotingClient = ({ positions }: VotingClientProps) => {
 			return
 		}
 
+		if (votes.length !== positions.length) {
+			toast.error(
+				`Please vote for all ${positions.length} positions before submitting.`,
+			)
+			return
+		}
+
 		const payload = {
 			computerNumber,
 			votes,
 		}
 
 		startTransition(() => {
-			console.log(payload)
 			vote(payload.votes, payload.computerNumber).then((data) => {
 				if (data.success) {
 					setComputerNumber('')
 					toast.success(data.success)
 					resetVotes()
+					window.scrollTo({ top: 0, behavior: 'smooth' })
 					router.refresh()
 				}
 				if (data.error) {
