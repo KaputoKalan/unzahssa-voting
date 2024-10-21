@@ -1,30 +1,30 @@
 [{
   "_id": {
-    "$oid": "6710d3e8d8e8b96a05727711"
+    "$oid": "6714a7cb3dc085e76039af85"
   },
   "username": "Kaputo",
   "computerNumber": "2017001903",
-  "password": "$2a$10$GLwzpxBGF8PRHo8GWhZchOuyTXdInBpsMEp2n4vnIXJugL5w5AKvG",
+  "password": "$2a$10$KCcAWi9Dw4FOTn2o2eubleenDq3OMb2gG/dUUvmthT8DEGGtKqJ.W",
   "hasVoted": {
     "$numberLong": "0"
   },
   "createdAt": {
-    "$date": "2024-10-17T09:07:52.563Z"
+    "$date": "2024-10-20T06:48:43.784Z"
   },
-  "role": "ADMIN"
+  "role": "STUDENT"
 },
 {
   "_id": {
-    "$oid": "6713b854dbee4547d3831fee"
+    "$oid": "671555f53dc085e76039af9d"
   },
-  "username": "Jackline",
-  "computerNumber": "2020082307",
-  "password": "$2a$10$wlPgzvutHEBIT7QLE8cbvuNCelRQfhwd/Xh24Rh6b66RhbbK1HshC",
+  "username": "Henry",
+  "computerNumber": "2020909111",
+  "password": "$2a$10$7Am2CRsgyqDF4NtsFmkq6OeK9MFtRQH4aANr3oZI1ZTrS6mEBUgPm",
   "hasVoted": {
     "$numberLong": "0"
   },
   "createdAt": {
-    "$date": "2024-10-19T13:47:00.167Z"
+    "$date": "2024-10-20T19:11:49.117Z"
   },
   "role": "STUDENT"
 }]
